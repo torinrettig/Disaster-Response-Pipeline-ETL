@@ -2,7 +2,7 @@
 A project to train a machine learning model to classify text into various topic categories to enable effective logging of messages related to disaster response needs. New messages can be dynamically classified through a web application.
 
 ## Project Organization
-.
+```
 ├── README.md                    <- The top-level README for developers using this project
 ├── app                          <- Web application files
 │   ├── run.py                   <- Web app Python script
@@ -22,6 +22,7 @@ A project to train a machine learning model to classify text into various topic 
 └── notebooks                     <- Practice notebooks
     ├── ETL\ Pipeline\ Preparation.ipynb  <- Data processing notebook
     └── ML\ Pipeline\ Preparation.ipynb   <- Model training notebook
+```
 
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
