@@ -15,6 +15,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.metrics import classification_report
 
 import pickle
+import time
 
 nltk.download(['punkt', 'wordnet'])
 
@@ -70,13 +71,24 @@ def tokenize(text):
 
 
 def build_model():
-    """Creates the model pipeline with CountVectorizer, TF-IDF and RandomForestClassifier"""
+    """Creates the model pipeline with CountVectorizer, TF-IDF and RandomForestClassifier, and uses 
+    GridSearchCV to find improved parameters"""
 
     # Build pipeline
     pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                     ('tfidf', TfidfTransformer()),
                     ('random_forest', RandomForestClassifier())])
-    return pipeline
+
+    # Use GridSearchCV to find better parameters
+    parameters = {
+        'tfidf__use_idf': [True, False],
+        'random_forest__n_estimators': [10, 20],
+        'random_forest__min_samples_split': [2, 4],
+        'random_forest__verbose': [3]
+    }
+    gridcv = GridSearchCV(pipeline, scoring='f1_macro', param_grid=parameters, n_jobs=-1, cv=3)
+
+    return gridcv
     
 def evaluate_model(model, X_test, y_test, category_names):
     """Show metric results of model predictions
@@ -146,7 +158,8 @@ def main():
         print('Please provide the filepath of the disaster messages database '\
               'as the first argument and the filepath of the pickle file to '\
               'save the model to as the second argument. \n\nExample: python '\
-              'train_classifier.py ../data/DisasterResponse.db classifier.pkl')
+              'code/train_classifier.py data/disaster_response.db '\
+              'models/trained_pipeline_model.pkl')
 
 
 if __name__ == '__main__':

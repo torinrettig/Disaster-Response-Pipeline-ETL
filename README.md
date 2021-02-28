@@ -40,13 +40,13 @@ A project to train a machine learning model to classify text into various topic 
 ## Instructions:
 1. Run the following commands in the **project's root directory** to set up your database and model.
 
-    - To run ETL pipeline that cleans data and stores in database, run the following from the **root directory**
-        `python code/process_data.py data/raw/messages.csv data/raw/categories.csv disaster_response.db`
-    - To run ML pipeline that trains classifier and saves the model, run this command from the **root directory**
-        `python code/train_classifier.py data/processed/disaster_response.db models/trained_pipeline_model.pkl`
+    - To run ETL pipeline that cleans data and stores in database, run the following from the **root directory** within the CLI:
+        `Disaster-Response-Pipeline-ETL % python code/process_data.py data/raw/messages.csv data/raw/categories.csv disaster_response.db`
+    - To run ML pipeline that trains classifier and saves the model, run this command from the **root directory** within the CLI: 
+        `Disaster-Response-Pipeline-ETL % python code/train_classifier.py data/processed/disaster_response.db models/trained_pipeline_model.pkl`
 
-2. Run the following command in the **root directory** to run your web app:
-    `python app/run.py`
+2. Run the following command in the **root directory** within the CLI to run your web app:
+    `Disaster-Response-Pipeline-ETL % python app/run.py`
 
 3. Go to the URL http://0.0.0.0:3001/ in your browser and enter text messages to see them classified.
 
