@@ -38,15 +38,15 @@ A project to train a machine learning model to classify text into various topic 
 - `notebooks/ML Pipeline Preparation.ipynb` - Notebook where the model training code was explored and tested.
 
 ## Instructions:
-1. Run the following commands in the project's root directory to set up your database and model.
+1. Run the following commands in the **project's root directory** to set up your database and model.
 
-    - To run ETL pipeline that cleans data and stores in database
+    - To run ETL pipeline that cleans data and stores in database, run the following from the **root directory**
         `python code/process_data.py data/raw/messages.csv data/raw/categories.csv disaster_response.db`
-    - To run ML pipeline that trains classifier and saves
+    - To run ML pipeline that trains classifier and saves the model, run this command from the **root directory**
         `python code/train_classifier.py data/processed/disaster_response.db models/trained_pipeline_model.pkl`
 
-2. Run the following command in the app's directory to run your web app.
+2. Run the following command in the **root directory** to run your web app:
     `python app/run.py`
 
-3. Go to http://0.0.0.0:3001/
+3. Go to the URL http://0.0.0.0:3001/ in your browser and enter text messages to see them classified.
 
