@@ -59,11 +59,25 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    """Save processed data to an SQLite database
+    
+    Parameters:
+    -----------
+    df: DataFrame to be stored in SQLite database
+    database_filename: Path and name of SQLite database to be created
+
+    Output:
+    --------
+    SQLite database saved to specified directory 
+    """
+
     engine = create_engine('sqlite:///data/processed/' + database_filename)
     df.to_sql('disaster_response', engine, index=False, if_exists='replace')  
 
 
 def main():
+    """Main script to be run when process_data.py is executed. 
+    Runs the data loading, data cleaning, and data save functions"""
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filename = sys.argv[1:]

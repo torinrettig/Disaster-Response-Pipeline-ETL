@@ -24,7 +24,20 @@ A project to train a machine learning model to classify text into various topic 
     └── ML\ Pipeline\ Preparation.ipynb   <- Model training notebook
 ```
 
-### Instructions:
+## Data Files
+- `data/raw/categories.csv` - Data file containing all of the possible categories of message data.
+- `data/raw/messages.csv` - Data file containing the text message data that will primarily be used for modeling.
+
+## Primary Code Files
+- `code/process_data.py` - Takes in raw message and categorization data, merges them, cleans the data, then saves the processed data to an SQLite database in the `data/processed` directory
+- `code/train_classifier.py` - Loads processed text data from SQLite database in `data/processed`, transforms it with count vectorization and TF-IDF, trains a Random Forest classification model and saves the trained model to the `models` directory.
+- `app/run.py` - Runs the flask web app code that will display the web page where new messages can be entered and their predicted categories dynamically returned.
+
+# Notebook Files
+- `notebooks/ETL Pipeline Preparation.ipynb` - Notebook where the loading, cleaning and processing code was explored and tested.
+- `notebooks/ML Pipeline Preparation.ipynb` - Notebook where the model training code was explored and tested.
+
+## Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database

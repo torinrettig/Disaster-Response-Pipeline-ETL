@@ -120,6 +120,8 @@ def save_model(model, model_filepath):
 
 
 def main():
+    """Runs the scripts that loads the processed data, builds the model, splits it into training
+    and test DataFrames, evaluates it, then saves the trained model to a specified directory."""
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
